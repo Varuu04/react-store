@@ -3,6 +3,7 @@ import { useState } from "react";
 export default function App3(){
     const [email,setEmail]=useState();
     const [password,setPassword]=useState();
+    //const [user,]
     const [msg,setMsg]=useState();
     const handleSubmit=()=>{
         if(email==="varu@gmail.com"&&password==="1234"){
