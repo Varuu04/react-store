@@ -1,10 +1,12 @@
+
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Cart from "./components/Cart";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Products from "./components/Products";
-import { createContext } from "react";
+import Orders from "./components/Orders";
+import { createContext, use } from "react";
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 export const appContext = createContext();
@@ -12,6 +14,7 @@ function App(props) {
   const [users, setUsers] = useState([]);
   const [user, setUser] = useState({});
   const [cart, setCart] = useState({});
+  const [orders,setOrders] = useState([])
   const products = [
     { id: 1, name: "Product 1", price: 56 },
     { id: 2, name: "Product 2", price: 40 },
@@ -23,13 +26,14 @@ function App(props) {
   return (
     <BrowserRouter>
       <appContext.Provider
-        value={{ users, setUsers, user, setUser, products, cart, setCart }}
+        value={{ users, setUsers, user, setUser, products, cart, setCart,orders,setOrders }}
       >
         <Header />
         <Routes>
           <Route index element={<Products />} />
-          <Route path="home" element={<Products />} />
+          <Route path="/" element={<Products />} />
           <Route path="cart" element={<Cart />} />
+          <Route path="orders" element={<Orders />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
         </Routes>
