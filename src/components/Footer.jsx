@@ -1,8 +1,9 @@
+
 import React from 'react'
 
 export default function Footer() {
   return (
-    <div>
+    <div style={{backgroundColor:'silver'}}>
       @Copyright 2025. All rights reserved.
     </div>
   )
