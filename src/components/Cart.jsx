@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { useContext } from "react";
 import { appContext } from "../App";
@@ -28,7 +29,7 @@ export default function Cart() {
       },
     ]);
     setCart({});
-    Navigate("/orders")
+    Navigate("/orders");
   };
   useEffect(() => {
     setOrderValue(
@@ -57,9 +58,11 @@ export default function Cart() {
           )}
           <h3>Order Value:{orderValue}</h3>
           <p>
-            
-            <button>Login to Order</button>
-            <button onClick={placeOrder}>Place Order</button>
+            {user.email ? (
+              <button onClick={placeOrder}>Place Order</button>
+            ) : (
+              <button onClick={()=>Navigate("/login")}>Login to Order</button>
+            )}
           </p>
         </>
       ) : (
